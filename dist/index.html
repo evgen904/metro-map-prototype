@@ -1,0 +1,492 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Website Title</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="styles/styles.css">
+    </head>
+    <body>
+
+    
+    
+        <div class="slider-t">
+            <ul class="step-top-inner" data-active="0">
+                <li class="active">
+                    <div data-id="0">
+                        <span>1 шаг</span>
+                    </div>
+                </li>
+                <li>
+                    <div data-id="1">
+                        <span>2 шаг</span>
+                    </div>
+                </li>
+                <li>
+                    <div data-id="2">
+                        <span>3 шаг</span>
+                    </div>
+                </li>
+                <li>
+                    <div data-id="3">
+                        <span>4 шаг</span>
+                    </div>
+                </li>
+                <li>
+                    <div data-id="4">
+                        <span>5 шаг</span>
+                    </div>
+                </li>
+            </ul>
+
+
+
+            <div class="step-parent">
+                <div class="step-1 step-popup visible animated step-1-js active-js flipInX" data-step="1">
+                    <div class="step-cen">
+                        <img src="images/11.jpg" alt=""> 
+                    </div>
+                </div>
+                <div class="step-2 step-popup invisible step-2-js" data-step="2">
+                    <div class="step-cen">
+                        <img src="images/22.jpg" alt=""> 
+                    </div>
+                </div>
+                <div class="step-3 step-popup invisible step-3-js" data-step="3">
+                    <div class="step-cen">
+                        <img src="images/hotel6.jpg" alt=""> 
+                    </div>
+                </div>
+                <div class="step-3 step-popup invisible step-4-js" data-step="4">
+                    <div class="step-cen">
+                        <img src="images/hotel8.jpg" alt=""> 
+                    </div>
+                </div>
+                <div class="step-5 step-popup invisible step-5-js" data-step="5">
+                    <div class="step-cen">
+                        <img src="images/55.jpg" alt=""> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        
+
+
+
+
+
+
+
+        <br><br><br><br><br><br><br>
+
+
+        <div class="slider-filter">
+            <div class="schedule-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" class="schedule active" width="245" height="50" viewBox="0 0 245 50">
+                    <style>
+                        rect { transition: height 1s;}
+                        #red.active rect {
+                            transition: height 0.5s;
+                        }
+                        rect.disabled {
+                            height: 0;
+                        }
+                    </style>
+                    <g id="grey" transform="scale(1 -1) translate(0 -50)" fill="#D8D8D8">
+                        <rect x="4" y="0" height="0%" width="12"></rect>
+                        <rect x="18" y="0" height="0%" width="12"></rect>
+                        <rect x="32" y="0" height="0%" width="12"></rect>
+                        <rect x="46" y="0" height="0%" width="12"></rect>
+                        <rect x="60" y="0" height="0%" width="12"></rect>
+                        <rect x="74" y="0" height="0%" width="12"></rect>
+                        <rect x="88" y="0" height="0%" width="12"></rect>
+                        <rect x="102" y="0" height="0%" width="12"></rect>
+                        <rect x="116" y="0" height="0%" width="12"></rect>
+                        <rect x="130" y="0" height="0%" width="12"></rect>
+                        <rect x="144" y="0" height="0%" width="12"></rect>
+                        <rect x="158" y="0" height="0%" width="12"></rect>
+                        <rect x="172" y="0" height="0%" width="12"></rect>
+                        <rect x="186" y="0" height="0%" width="12"></rect>
+                        <rect x="200" y="0" height="0%" width="12"></rect>
+                        <rect x="214" y="0" height="0%" width="12"></rect>
+                        <rect x="228" y="0" height="0%" width="12"></rect>
+                    </g>
+                    <g id="red" transform="scale(1 -1) translate(0 -50)" fill="#FDD2D2">
+                        <rect x="4" y="0" height="0%" width="12"></rect>
+                        <rect x="18" y="0" height="0%" width="12"></rect>
+                        <rect x="32" y="0" height="0%" width="12"></rect>
+                        <rect x="46" y="0" height="0%" width="12"></rect>
+                        <rect x="60" y="0" height="0%" width="12"></rect>
+                        <rect x="74" y="0" height="0%" width="12"></rect>
+                        <rect x="88" y="0" height="0%" width="12"></rect>
+                        <rect x="102" y="0" height="0%" width="12"></rect>
+                        <rect x="116" y="0" height="0%" width="12"></rect>
+                        <rect x="130" y="0" height="0%" width="12"></rect>
+                        <rect x="144" y="0" height="0%" width="12"></rect>
+                        <rect x="158" y="0" height="0%" width="12"></rect>
+                        <rect x="172" y="0" height="0%" width="12"></rect>
+                        <rect x="186" y="0" height="0%" width="12"></rect>
+                        <rect x="200" y="0" height="0%" width="12"></rect>
+                        <rect x="214" y="0" height="0%" width="12"></rect>
+                        <rect x="228" y="0" height="0%" width="12"></rect>
+                    </g>
+                </svg>
+            </div>
+
+
+
+
+            <div id="slider" data-schedule="7000,9000,10000,30000,24000,20000,30000,40000,50000,47000,41000,32000,10000,12000,40000,30000,32000"></div>
+
+
+            <input type="checkbox" class="checkbox-filter">
+        </div>
+
+
+
+        <br><br><br><br><br>
+        <br><br><br><br><br>
+        <br><br><br><br><br>
+        <br><br><br><br><br>
+        <br><br><br><br><br>
+        <br><br><br><br><br>
+        <br><br><br><br><br>
+        <br><br><br><br><br>
+        <br><br><br><br><br>
+
+
+
+
+
+
+
+        <div class="owl-carousel-wrap" data-video="1">
+            <div class="owl-carousel owl-theme manual thumb-gallery-detail show-nav-hover" id="thumbGalleryDetai">
+                <div class="item-video player-owl-wrapper">
+                    <div class="player-wrap" id="video-lightgallery">
+                        <stream src="5d5bc37ffcf54c9b82e996823bffbb81" controls preload height="100%" width="100%"></stream>
+                        <script data-cfasync="false" defer type="text/javascript" src="https://embed.cloudflarestream.com/embed/r4xu.fla9.latest.js?video=5d5bc37ffcf54c9b82e996823bffbb81"></script>
+                        <div class="fullscreen-video">
+                            <img src="https://cloudflarestream.com/86dc323bc7028384cae62aa26aa4230b/thumbnails/thumb_5_0.png" alt="">
+                        </div>
+                    </div>
+                    <div style="display:none;" class="item" data-thumb-src="images/video.jpg" data-poster="images/video.jpg" data-html="#video-lightgallery">
+                        <img src="images/video.jpg" data-thumb-video="1" alt="Foto">
+                    </div>
+                </div>
+                <div class="item bg-loading" data-src="images/img-1.jpg" data-sub-html=" ">
+                    <img class="owl-lazy" data-src="images/img-1.jpg" data-thumb-src="images/img-1.jpg" alt="Фото">
+                </div>
+                <div class="item bg-loading" data-src="images/img-2.jpg">
+                    <img class="owl-lazy" data-src="images/img-2.jpg" data-thumb-src="images/img-2.jpg" alt="Фото">
+                </div>
+                <div class="item bg-loading" data-src="images/img-3.jpg">
+                    <img class="owl-lazy" data-src="images/img-3.jpg" data-thumb-src="images/img-3.jpg" alt="Фото">
+                </div>
+                <div class="item bg-loading" data-src="images/img-4.jpg">
+                    <img class="owl-lazy" data-src="images/img-4.jpg" data-thumb-src="images/img-4.jpg" alt="Фото">
+                </div>
+                <div class="item bg-loading" data-src="images/img-5.jpg">
+                    <img class="owl-lazy" data-src="images/img-5.jpg" data-thumb-src="images/img-5.jpg" alt="Фото">
+                </div>
+                <div class="item bg-loading" data-src="images/img-6.jpg">
+                    <img class="owl-lazy" data-src="images/img-6.jpg" data-thumb-src="images/img-6.jpg" alt="Фото">
+                </div>
+                <div class="item bg-loading" data-src="images/img-7.jpg">
+                    <img class="owl-lazy" data-src="images/img-7.jpg" data-thumb-src="images/img-7.jpg" alt="Фото">
+                </div>
+                <div class="item bg-loading" data-src="images/img-8.jpg">
+                    <img class="owl-lazy" data-src="images/img-8.jpg" data-thumb-src="images/img-8.jpg" alt="Фото">
+                </div>
+                <div class="item bg-loading" data-src="images/img-9.jpg">
+                    <img class="owl-lazy" data-src="images/img-9.jpg" data-thumb-src="images/img-9.jpg" alt="Фото">
+                </div>
+                <div class="item bg-loading" data-src="images/img-10.jpg">
+                    <img class="owl-lazy" data-src="images/img-10.jpg" data-thumb-src="images/img-10.jpg" alt="Фото">
+                </div>
+                <div class="item bg-loading" data-src="images/img-11.jpg">
+                    <img class="owl-lazy" data-src="images/img-11.jpg" data-thumb-src="images/img-11.jpg" alt="Фото">
+                </div>
+                <div class="item bg-loading" data-src="images/img-12.jpg">
+                    <img class="owl-lazy" data-src="images/img-12.jpg" data-thumb-src="images/img-12.jpg" alt="Фото">
+                </div>
+                <div class="item bg-loading" data-src="images/1-big.jpg">
+                    <img class="owl-lazy" data-src="images/1-big.jpg" data-thumb-src="images/1-medium.jpg" alt="Фото">
+                    <div class="item-note">
+                        Примерный текст
+                    </div>
+                </div>
+                <div class="item bg-loading" data-src="images/2-big.jpg">
+                    <img class="owl-lazy" data-src="images/2-big.jpg" data-thumb-src="images/2-medium.jpg" alt="">
+                    <div class="item-note">
+                        Примерный текст ыва ываыв
+                    </div>
+                </div>
+                <div class="item bg-loading" data-src="images/3-big.jpg">
+                    <img class="owl-lazy" data-src="images/3-big.jpg" data-thumb-src="images/3-medium.jpg" alt="">
+                </div>
+                <div class="item bg-loading" data-src="images/4-big.jpg">
+                    <img class="owl-lazy" data-src="images/4-big.jpg" data-thumb-src="images/4-medium.jpg" alt="">
+                </div>
+                <div class="item bg-loading" data-src="images/11.jpg">
+                    <img class="owl-lazy" data-src="images/11.jpg" data-thumb-src="images/11.jpg" alt="">
+                </div>
+                <div class="item bg-loading" data-src="images/22.jpg">
+                    <img class="owl-lazy" data-src="images/22.jpg" data-thumb-src="images/22.jpg" alt="">
+                </div>
+                <div class="item bg-loading" data-src="images/33.jpg">
+                    <img class="owl-lazy" data-src="images/33.jpg" data-thumb-src="images/33.jpg" alt="">
+                </div>
+                <div class="item bg-loading" data-src="images/44.jpg">
+                    <img class="owl-lazy" data-src="images/44.jpg" data-thumb-src="images/44.jpg" alt="">
+                </div>
+                <div class="item bg-loading" data-src="images/55.jpg">
+                    <img class="owl-lazy" data-src="images/55.jpg" data-thumb-src="images/55.jpg" alt="">
+                </div>
+                <div class="item" data-src="images/66.jpg">
+                    <img class="owl-lazy" data-src="images/66.jpg" data-thumb-src="images/66.jpg" alt="">
+                </div>
+                <div class="item bg-loading" data-src="images/77.jpg">
+                    <img class="owl-lazy" data-src="images/77.jpg" data-thumb-src="images/77.jpg" alt="">
+                </div>
+                <div class="item bg-loading" data-src="images/88.jpg">
+                    <img class="owl-lazy" data-src="images/88.jpg" data-thumb-src="images/88.jpg" alt="">
+                </div>
+            </div>
+            <div class="owl-carousel owl-theme manual thumb-gallery-thumbs mt" id="thumbGalleryThumbs">
+                <div class="item video">
+                    <img class="owl-lazy" data-src="images/video.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/img-1.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/img-2.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/img-3.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/img-4.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/img-5.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/img-6.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/img-7.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/img-8.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/img-9.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/img-10.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/img-11.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/img-12.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/1-medium.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/2-medium.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/3-medium.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/4-medium.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/11.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/22.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/33.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/44.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/55.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/66.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/77.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img class="owl-lazy" data-src="images/88.jpg" alt="">
+                </div>
+            </div>
+        </div>
+
+        <h4>Слайдер для поиска объекта</h4>
+
+
+        <div style="width: 334px;">
+            <div class="object-slider-images obj-img">
+                <ul class="owl-carousel object-slider-img object-slider-images-js">
+                    <li>
+                        <img class="owl-lazy" data-src="images/img1.webp" src="" alt="Фото">
+                    </li>
+                    <li>
+                        <img class="owl-lazy" data-src="images/img2.webp" src="" alt="Фото">
+                    </li>
+                    <li>
+                        <img class="owl-lazy" data-src="images/img3.webp" src="" alt="Фото">
+                    </li>
+                    <li>
+                        <img class="owl-lazy" data-src="images/img4.webp" src="" alt="Фото">
+                    </li>
+                    <li>
+                        <img class="owl-lazy" data-src="images/img5.jpg" src="" alt="Фото">
+                    </li>
+                    <li>
+                        <img class="owl-lazy" data-src="images/img1111.jpg" src="" alt="Фото">
+                    </li>
+                </ul>
+                <div class="owl-carousel-counter"></div>
+            </div>
+        </div>
+
+        <h4>Слайдер для поиска отеля</h4>
+
+        <div style="width: 216px;">
+            <div class="object-slider-images hotel-img">
+                <ul class="owl-carousel object-slider-img object-slider-images-js">
+                    <li>
+                        <img class="owl-lazy" data-src="images/img1.webp" src="" alt="Фото">
+                    </li>
+                    <li>
+                        <img class="owl-lazy" data-src="images/img2.webp" src="" alt="Фото">
+                    </li>
+                    <li>
+                        <img class="owl-lazy" data-src="images/img3.webp" src="" alt="Фото">
+                    </li>
+                    <li>
+                        <img class="owl-lazy" data-src="images/img4.webp" src="" alt="Фото">
+                    </li>
+                    <li>
+                        <img class="owl-lazy" data-src="images/img5.jpg" src="" alt="Фото">
+                    </li>
+                    <li>
+                        <img class="owl-lazy" data-src="images/img1111.jpg" src="" alt="Фото">
+                    </li>
+                </ul>
+                <div class="owl-carousel-owl-carousel-counter"></div>
+            </div>
+        </div>
+
+        <h4>Слайдер для поиска отеля основной</h4>
+
+
+        <div class="owl-carousel-hotel-wrap">
+            <ul class="owl-carousel owl-carousel-hotel owl-carousel-hotel-js">
+                <li class="item bg-loading" data-src="images/hotel1.jpg" data-sub-html=" ">
+                    <img class="owl-lazy" data-src="images/hotel1.jpg" data-thumb-src="images/hotel1.jpg" alt="Фото">
+                </li>
+                <li class="item bg-loading" data-src="images/hotel2.webp" data-sub-html=" ">
+                    <img class="owl-lazy" data-src="images/hotel2.webp" data-thumb-src="images/hotel2.webp" alt="Фото">
+                </li>
+                <li class="item bg-loading" data-src="images/hotel3.jpg" data-sub-html=" ">
+                    <img class="owl-lazy" data-src="images/hotel3.jpg" data-thumb-src="images/hotel3.jpg" alt="Фото">
+                </li>
+                <li class="item bg-loading" data-src="images/hotel4.webp" data-sub-html=" ">
+                    <img class="owl-lazy" data-src="images/hotel4.webp" data-thumb-src="images/hotel4.webp" alt="Фото">
+                </li>
+                <li class="item bg-loading" data-src="images/hotel5.jpg" data-sub-html=" ">
+                    <img class="owl-lazy" data-src="images/hotel5.jpg" data-thumb-src="images/hotel5.jpg" alt="Фото">
+                </li>
+                <li class="item bg-loading" data-src="images/hotel6.jpg" data-sub-html=" ">
+                    <img class="owl-lazy" data-src="images/hotel6.jpg" data-thumb-src="images/hotel6.jpg" alt="Фото">
+                </li>
+                <li class="item bg-loading" data-src="images/hotel7.jpg" data-sub-html=" ">
+                    <img class="owl-lazy" data-src="images/hotel7.jpg" data-thumb-src="images/hotel7.jpg" alt="Фото">
+                </li>
+            </ul>
+            <div class="owl-carousel-counter"></div>
+        </div>
+
+
+
+        <h4>Слайдер для поиска отзывов</h4>
+
+
+
+        <div class="reviews-slider-wrap">
+            <ul class="owl-carousel reviews-slider reviews-slider-js">
+                <li class="item bg-loading" data-src="images/hotel1.jpg" data-sub-html=" ">
+                    <img class="owl-lazy" data-src="images/hotel1.jpg" data-thumb-src="images/hotel1.jpg" alt="Фото">
+                </li>
+                <li class="item bg-loading" data-src="images/hotel2.webp" data-sub-html=" ">
+                    <img class="owl-lazy" data-src="images/hotel2.webp" data-thumb-src="images/hotel2.webp" alt="Фото">
+                </li>
+                <li class="item bg-loading" data-src="images/hotel3.jpg" data-sub-html=" ">
+                    <img class="owl-lazy" data-src="images/hotel3.jpg" data-thumb-src="images/hotel3.jpg" alt="Фото">
+                </li>
+                <li class="item bg-loading" data-src="images/hotel4.webp" data-sub-html=" ">
+                    <img class="owl-lazy" data-src="images/hotel4.webp" data-thumb-src="images/hotel4.webp" alt="Фото">
+                </li>
+                <li class="item bg-loading" data-src="images/hotel5.jpg" data-sub-html=" ">
+                    <img class="owl-lazy" data-src="images/hotel5.jpg" data-thumb-src="images/hotel5.jpg" alt="Фото">
+                </li>
+                <li class="item bg-loading" data-src="images/hotel6.jpg" data-sub-html=" ">
+                    <img class="owl-lazy" data-src="images/hotel6.jpg" data-thumb-src="images/hotel6.jpg" alt="Фото">
+                </li>
+                <li class="item bg-loading" data-src="images/hotel7.jpg" data-sub-html=" ">
+                    <img class="owl-lazy" data-src="images/hotel7.jpg" data-thumb-src="images/hotel7.jpg" alt="Фото">
+                </li>
+                <li class="item bg-loading" data-src="images/hotel8.jpg" data-sub-html=" ">
+                    <img class="owl-lazy" data-src="images/hotel8.jpg" data-thumb-src="images/hotel8.jpg" alt="Фото">
+                </li>
+            </ul>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <script src="scripts/app.js"></script>
+
+
+
+
+
+
+    </body>
+</html>
+
+
+
+
+
+
