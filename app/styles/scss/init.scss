@@ -1,15 +1,16 @@
 
 body {
-    background: #fff;
+    background: #f0f0f0;
 }
 #div1 {
     width: 80%;
     //height: 400px;
-    background: #f0f0f0;
+    background: #fff;
     border: 2px solid #ccc;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
+    user-select: none;
     .svg-map {
         transition: all 0.4s ease;
     }
