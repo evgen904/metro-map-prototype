@@ -1,127 +1,39 @@
 document.addEventListener("DOMContentLoaded", function(event) {
-	var x;
-	var y;
-	var t=1;
-	var x1,y1,l,r;
 
-	/*
-	document.getElementById("div2").addEventListener("mousedown", down);
-	function down(){
-	    t=1;
-	    document.addEventListener("mouseup", place);
-	    
-	    document.addEventListener("mousemove",  myFunction);
-	}
-	function place(){ 
-	    document.removeEventListener("mousemove",  myFunction);
-	}  
-	function placeobj(x,y,x1,y1,l,r){
-	    var cpx = parseInt(x);
-	    var cpy = parseInt(y);
-	    var amtx=parseInt(x1);
-	    var amty=parseInt(y1);
-	    var of=10;
-	    document.getElementById("div2").style.left=cpx-amtx+l+"px";
-	    document.getElementById("div2").style.top=cpy-amty+r+"px";
-	}
-	function myFunction(e) {
-	    if(t==1){
-	        x1 = e.clientX;
-	        y1 = e.clientY;
-	        var el=document.getElementById('div2');
-	        l=el.offsetLeft;
-	        r=el.offsetTop;
-	        t=10;
-	    }
-	        x = e.clientX;
-	        y = e.clientY;
-	    placeobj(x,y,x1,y1,l,r);
-	}
-	*/
-	
+	let mapBlock = document.querySelector('.js-map-wrap');
+	let moveBlockEl = document.querySelector('.js-block-drag');
+	let positionBlock = mapBlock.getBoundingClientRect();
 
-	let svgMap2 = $('.svg-map');
-	let svgMapWrap = {
-		w: $('.js-map-wr').width(),
-		h: $('.js-map-wr').height()
+	let startX = 0;
+	let startY = 0;
+
+	mapBlock.addEventListener('mousedown', downBlock);
+
+	function downBlock(event) {
+		document.addEventListener('mousemove', moveBlock);
+		document.addEventListener('mouseup', upBlock);
+		startX = event.pageX - moveBlockEl.getBoundingClientRect().left;
+		startY = event.pageY - moveBlockEl.getBoundingClientRect().top;
+	}
+
+	function moveBlock(event) {
+		// узнаем на сколько сместили курсор
+		let thisPosX = (event.pageX - startX) - positionBlock.left;
+		let thisPosY = (event.pageY - startY) - positionBlock.top;
+		moveBlockEl.style.transform = `translate3d(${thisPosX}px, ${thisPosY}px, 0px)`;
+	};
+	function upBlock(event) {	
+		//console.log('up');
+		document.removeEventListener('mousemove', moveBlock)
+		setTimeout(() => {
+			document.removeEventListener('mousedown', downBlock)
+			document.removeEventListener('mouseup', upBlock)
+		});
 	};
 
-	let zoomStep = 0;
-	function sizeMap(val) {
-		if (val == 0) {
-			svgMap2.css({
-				'transform':'translate3d(0px, 0, 0px) scale(0)'
-			});
-		} else if (val == 1) {
-			svgMap2.css({
-				'transform':'translate3d(0px, 0, 0px) scale(1)'
-			});
-		} else if (val == 2) {
-			svgMap2.css({
-				'transform':'translate3d(0px, 0, 0px) scale(2)'
-			});
-		}
-	}
-	$('.js-zoom-in').on('click',function(){
-		if (zoomStep < 2) {
-			zoomStep++;
-		}
-		sizeMap(zoomStep);
-	});
-	$('.js-zoom-out').on('click',function(){
-		if (zoomStep != 0) {
-			zoomStep--;
-		}
-		sizeMap(zoomStep);
-	});
+
 
 	/*
-	document.querySelector('.js-map-wrap').addEventListener("mousedown", down2);;
-
-	function down2() {
-		document.addEventListener("mouseup", place2);
-	    
-	    document.addEventListener("mousemove",  myFunction2);
-	}
-
-	function place2(){ 
-	    document.removeEventListener("mousemove",  myFunction2);
-	}  
-	function myFunction2(e) {
-	    if(t==1){
-	        x1 = e.clientX;
-	        y1 = e.clientY;
-	        var el=document.getElementById('div2');
-	        l=el.offsetLeft;
-	        r=el.offsetTop;
-	        t=10;
-	    }
-	        x = e.clientX;
-	        y = e.clientY;
-	    placeobj2(x,y,x1,y1,l,r);
-	}
-	function placeobj2(x,y,x1,y1,l,r){
-	    var cpx = parseInt(x);
-	    var cpy = parseInt(y);
-	    var amtx=parseInt(x1);
-	    var amty=parseInt(y1);
-
-
-
-
-	    document.querySelector('.js-map-wr').style.transform = `translate3d(${cpx-amtx+l}px, ${cpy-amty+r}px, 0px)`;
-
-
-	    //document.getElementById("div2").style.left=cpx-amtx+l+"px";
-	    //document.getElementById("div2").style.top=cpy-amty+r+"px";
-	}
-	*/
-
-
-	var xNew = 0;
-	var xOld = 0;
-
-
 
 	var ball = document.querySelector('.js-map-wrap');
 	ball.onmousedown = function(e) {
@@ -130,31 +42,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		var blockX = document.querySelector('.js-map-wrap').getBoundingClientRect().left
 		var blockY = document.querySelector('.js-map-wrap').getBoundingClientRect().top
 
-
-
 		var coords = getCoords(ball);
 		var shiftX = e.pageX - coords.left;
 		var shiftY = e.pageY - coords.top;
 		//ball.style.position = 'absolute';
 		//document.body.appendChild(ball);
 
-		xNew = (document.querySelector('.js-map-wr').getAttribute('data-x')) ? document.querySelector('.js-map-wr').getAttribute('data-x') : 0;
-
-		console.log(xNew);
-
-
 		moveAt(e);
 		//ball.style.zIndex = 1000; // над другими элементами
 		function moveAt(e) {
 
 
-
-			xOld = (e.pageX - shiftX) - blockX;
-
-
-			document.querySelector('.js-map-wr').style.transform = `translate3d(${xNew - ((e.pageX - shiftX) - blockX)}px, 0px, 0px)`;
+			document.querySelector('.block-drag').style.transform = `translate3d(${(e.pageX - shiftX) - blockX}px, 0px, 0px)`;
 			
-			
+
+
 
 
 
@@ -165,10 +67,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			moveAt(e);
 		};
 		ball.onmouseup = function() {
-
-			document.querySelector('.js-map-wr').setAttribute('data-x', xOld)
-
-
 			document.onmousemove = null;
 			ball.onmouseup = null;
 		};
@@ -184,6 +82,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			left: box.left + pageXOffset
 		};
 	}
+
+
+	*/
+
 
 
 
@@ -1392,6 +1294,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }
 	});
 
+	
+	/*
 
 	document.querySelector('.js-map-wr svg #scheme-layer-labels').addEventListener('click',function(ev){
 		let idLabel =  ev.target.parentElement.getAttribute('id').split('-')[1];
@@ -1432,7 +1336,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	});
 
 
-
+	*/
 
 
 
