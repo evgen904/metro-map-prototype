@@ -2349,8 +2349,8 @@ function getRoot(root) {
 function getEventPoint(evt) {
   var p = root.createSVGPoint();
 
-  p.x = evt.clientX;
-  p.y = evt.clientY;
+  p.x = evt.clientX - root.getBoundingClientRect().left;
+  p.y = evt.clientY - root.getBoundingClientRect().top;
 
   return p;
 }
@@ -2400,7 +2400,7 @@ function handleMouseWheel(evt) {
   if (evt.wheelDelta) delta = evt.wheelDelta / 3600; // Chrome/Safari
   else delta = evt.detail / -90; // Mozilla
 
-  var z = 1 + delta; // Zoom factor: 0.9/1.1
+  var z = 1 + delta * 10; // Zoom factor: 0.9/1.1
 
   var g = getRoot(svgDoc);
 
