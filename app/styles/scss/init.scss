@@ -15,13 +15,19 @@ body {
     background: #21808a;
 }
 
+.svg-drag {
+    width: 100%;
+    height: 100%;
+}
+
+
 
 .metro-wrap {
-    width: 80%;
+    width: 100%;
     height: 80vh;
     //height: 400px;
     background: #fff;
-    border: 2px solid #ccc;
+    border: 0px solid #ccc;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
@@ -34,7 +40,10 @@ body {
         top: 0;
         left: 0;
     }
-    .svg-map-wr {
+    .svg-map-wr  {
+        height: 100%;
+    }
+    .svg-map-wr2 {
         position: absolute;
         top: 0;
         left: 0;
