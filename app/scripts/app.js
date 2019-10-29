@@ -2316,8 +2316,14 @@ function setupHandlers(root) {
     //"onmouseout" : "handleMouseUp(evt)", // Decomment this to stop the pan functionality when dragging out of the SVG element
   });
 
-  if (navigator.userAgent.toLowerCase().indexOf('webkit') >= 0) window.addEventListener('mousewheel', handleMouseWheel, false); // Chrome/Safari
-  else window.addEventListener('DOMMouseScroll', handleMouseWheel, false); // Others
+  window.addEventListener('mousewheel', handleMouseWheel, false); // Chrome/Safari
+
+  /*if(navigator.userAgent.toLowerCase().indexOf('webkit') >= 0)
+  	window.addEventListener('mousewheel', handleMouseWheel, false); // Chrome/Safari
+  else
+  	window.addEventListener('DOMMouseScroll', handleMouseWheel, false); // Others
+  
+  */
 }
 
 /**
@@ -2330,6 +2336,8 @@ function getRoot(root) {
     g = root.getElementById("viewport");
 
     if (g == null) g = root.getElementsByTagName('g')[0];
+
+    //console.log(g, '3232');
 
     if (g == null) alert('Unable to obtain SVG root element');
 
@@ -2359,9 +2367,15 @@ function getEventPoint(evt) {
  * Sets the current transform matrix of an element.
  */
 function setCTM(element, matrix) {
-  var s = "matrix(" + matrix.a + "," + matrix.b + "," + matrix.c + "," + matrix.d + "," + matrix.e + "," + matrix.f + ")";
+  if (matrix.a < 3 && matrix.a > 0.9) {
+    var s = "matrix(" + matrix.a + "," + matrix.b + "," + matrix.c + "," + matrix.d + "," + matrix.e + "," + matrix.f + ")";
+    element.setAttribute("transform", s);
+  }
 
-  element.setAttribute("transform", s);
+  /*
+  	var s = "matrix(" + matrix.a + "," + matrix.b + "," + matrix.c + "," + matrix.d + "," + matrix.e + "," + matrix.f + ")";
+  		element.setAttribute("transform", s);
+  */
 }
 
 /**
@@ -2385,37 +2399,67 @@ function setAttributes(element, attributes) {
 /**
  * Handle mouse wheel event.
  */
+
 function handleMouseWheel(evt) {
 
-  if (!enableZoom) return;
+  if (evt === 'in' || evt === 'out' || evt === 'dblclick') {
 
-  if (evt.preventDefault) evt.preventDefault();
+    var delta = evt === 'in' ? 0.03 : evt === 'out' ? -0.03 : 0.03;
 
-  evt.returnValue = false;
+    if (evt === 'dblclick') {
+      var z = 1 + delta * 12; // Zoom factor: 0.9/1.1
+    } else {
+      var z = 1 + delta * 4.5; // Zoom factor: 0.9/1.1
+    }
 
-  var svgDoc = evt.target.ownerDocument;
+    var g = document.querySelector('#transform-wrapper');
 
-  var delta;
+    var p = document.querySelector('.svg-drag').createSVGPoint();
 
-  if (evt.wheelDelta) delta = evt.wheelDelta / 3600; // Chrome/Safari
-  else delta = evt.detail / -90; // Mozilla
+    if (evt === 'dblclick') {
+      p.x = event.clientX - root.getBoundingClientRect().left;
+      p.y = event.clientY - root.getBoundingClientRect().top;
+    } else {
+      p.x = document.querySelector('.svg-drag').getBoundingClientRect().width / 2;
+      p.y = document.querySelector('.svg-drag').getBoundingClientRect().height / 2;
+    }
 
-  var z = 1 + delta * 10; // Zoom factor: 0.9/1.1
+    p = p.matrixTransform(g.getCTM().inverse());
 
-  var g = getRoot(svgDoc);
+    var k = document.querySelector('.svg-drag').createSVGMatrix().translate(p.x, p.y).scale(z).translate(-p.x, -p.y);
 
-  var p = getEventPoint(evt);
+    setCTM(g, g.getCTM().multiply(k));
+  } else {
+    if (evt.preventDefault) evt.preventDefault();
 
-  p = p.matrixTransform(g.getCTM().inverse());
+    evt.returnValue = false;
 
-  // Compute new scale matrix in current mouse position
-  var k = root.createSVGMatrix().translate(p.x, p.y).scale(z).translate(-p.x, -p.y);
+    var delta;
 
-  setCTM(g, g.getCTM().multiply(k));
+    if (evt.deltaY <= -1) {
+      delta = 0.03;
+    }
+    if (evt.deltaY >= 1) {
+      delta = -0.03;
+    }
 
-  if (typeof stateTf == "undefined") stateTf = g.getCTM().inverse();
+    var z = 1 + delta * 3; // Zoom factor: 0.9/1.1
 
-  stateTf = stateTf.multiply(k.inverse());
+    var g = document.querySelector('#transform-wrapper');
+
+    var p = getEventPoint(evt);
+
+    p = p.matrixTransform(g.getCTM().inverse());
+
+    // Compute new scale matrix in current mouse position
+    var k = root.createSVGMatrix().translate(p.x, p.y).scale(z).translate(-p.x, -p.y);
+
+    setCTM(g, g.getCTM().multiply(k));
+
+    if (typeof stateTf == "undefined") stateTf = g.getCTM().inverse();
+
+    stateTf = stateTf.multiply(k.inverse());
+  }
 }
 
 /**
@@ -2494,6 +2538,43 @@ function handleMouseUp(evt) {
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
+
+  var svg = document.querySelector('svg');
+  var elSvg = svg.querySelector('#transform-wrapper');
+
+  var svgX = (svg.getBoundingClientRect().width - elSvg.getBoundingClientRect().width) / 2;
+  var svgY = (svg.getBoundingClientRect().height - elSvg.getBoundingClientRect().height) / 2;
+
+  elSvg.setAttribute('transform', "matrix(1,0,0,1," + svgX + "," + svgY + ")");
+
+  var zoomVal = 0;
+
+  function zoom(val) {
+    if (val === 'in' && zoomVal < 4) {
+      zoomVal++;
+    }
+    if (val === 'out' && zoomVal !== 0) {
+      zoomVal--;
+    }
+
+    //console.log(zoomVal);
+
+  }
+
+  document.querySelector('.js-zoom-in').addEventListener('click', function () {
+    zoom('in');
+
+    handleMouseWheel('in');
+  });
+  document.querySelector('.js-zoom-out').addEventListener('click', function () {
+    zoom('out');
+    handleMouseWheel('out');
+  });
+
+  document.querySelector('.svg-drag').addEventListener('dblclick', function () {
+
+    handleMouseWheel('dblclick');
+  });
 
   // let mapBlock = document.querySelector('.js-map-wrap');
   // let moveBlockEl = document.querySelector('.js-block-drag');
@@ -3825,5 +3906,4 @@ document.addEventListener("DOMContentLoaded", function (event) {
   
   
   */
-
 });
